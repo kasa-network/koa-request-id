@@ -1,0 +1,64 @@
+{
+  "name": "@kasa/koa-request-id",
+  "version": "0.1.0",
+  "description": "A middleware that adds a request id in Koa",
+  "homepage": "https://github.com/kasa-network/koa-request-id",
+  "author": {
+    "name": "Kasa Engineering",
+    "email": "dev@kasa.network",
+    "url": "http://www.kasa.network"
+  },
+  "contributors": [
+    {
+      "name": "Byungjin Park",
+      "email": "posquit0.bj@gmail.com",
+      "url": "http://www.posquit0.com"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kasa-network/koa-request-id.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kasa-network/koa-request-id/issues"
+  },
+  "keywords": [
+    "kasa",
+    "koa",
+    "koa2",
+    "koa-middleware",
+    "koa2-middleware",
+    "request-id",
+    "correlation-id"
+  ],
+  "engines": {
+    "node": ">= 8.0.0"
+  },
+  "files": [
+    "index.js",
+    "lib/"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest --verbose",
+    "test:watch": "npm test -- --watch",
+    "test:coverage": "npm test -- --coverage",
+    "lint": "eslint lib test",
+    "lint:lib": "eslint lib",
+    "lint:test": "eslint test"
+  },
+  "dependencies": {
+    "debug": "^3.1.0"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "eslint": "^5.7.0",
+    "eslint-config-kasa": "^0.1.3",
+    "jest": "^23.4.1",
+    "jest-junit": "^5.2.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}

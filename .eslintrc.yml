@@ -1,0 +1,5 @@
+root: true
+extends:
+  - 'kasa'
+parserOptions:
+  sourceType: 'script'
