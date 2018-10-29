@@ -11,10 +11,7 @@
     <img alt="CircleCI" src="https://circleci.com/gh/kasa-network/koa-request-id.svg?style=shield" />
   </a>
   <a href="https://badge.fury.io/js/@kasa/koa-request-id">
-    <img alt="npm version" src="https://badge.fury.io/js/@kasa/koa-request-id.svg" />
-  </a>
-  <a href="https://www.npmjs.com/package/@kasa/koa-request-id">
-    <img alt="npm" src="https://img.shields.io/npm/dt/@kasa/koa-request-id.svg" />
+    <img alt="npm version" src="https://img.shields.io/npm/v/@kasa/koa-request-id.svg" />
   </a>
   <a href="https://david-dm.org/kasa-network/koa-request-id">
     <img alt="npm" src="https://img.shields.io/david/kasa-network/koa-request-id.svg?style=flat-square" />
