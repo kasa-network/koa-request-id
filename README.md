@@ -1,4 +1,33 @@
-# Koa Request ID
+<div align="center">
+  <h1>@kasa/koa-request-id</h1>
+</div>
+
+<p align="center">
+  A middleware that adds a request id in Koa
+</p>
+
+<div align="center">
+  <a href="https://circleci.com/gh/kasa-network/koa-request-id">
+    <img alt="CircleCI" src="https://circleci.com/gh/kasa-network/koa-request-id.svg?style=shield" />
+  </a>
+  <a href="https://badge.fury.io/js/@kasa/koa-request-id">
+    <img alt="npm version" src="https://badge.fury.io/js/@kasa/koa-request-id.svg" />
+  </a>
+  <a href="https://www.npmjs.com/package/@kasa/koa-request-id">
+    <img alt="npm" src="https://img.shields.io/npm/dt/@kasa/koa-request-id.svg" />
+  </a>
+  <a href="https://david-dm.org/kasa-network/koa-request-id">
+    <img alt="npm" src="https://img.shields.io/david/kasa-network/koa-request-id.svg?style=flat-square" />
+  </a>
+  <a href="https://opensource.org/licenses/mit-license.php">
+    <img alt="MIT Licence" src="https://badges.frapsoft.com/os/mit/mit.svg?v=103" />
+  </a>
+  <a href="https://github.com/ellerbrock/open-source-badge/">
+    <img alt="Open Source Love" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103" />
+  </a>
+</div>
+
+<br />
 
 
 ## Installation
@@ -13,11 +42,52 @@ $ yarn add @kasa/koa-request-id
 
 ### Dependencies
 
-- [**Koa**]():
-- [**Node.js**]():
+- [**Koa**](https://github.com/koajs/koa) 2.0+
+- [**Node.js**](https://nodejs.org) 8.0.0+
 
 
 ## Usage
+
+Use `koa-request-id` as a middleware for a [koa](https://github.com/koajs/koa) app. By default, it generates a unique uuid (v4) and exposes it on the response via the `X-Request-Id` header. The id is also saved as part of the request *state*.
+
+In the following example, the generated uuid is manually exposed on the body for debugging purposes:
+
+```js
+const Koa = require('koa');
+const requestId = require('@kasa/koa-request-id');
+const app = new Koa();
+
+app.use(requestId());
+app.use(async ctx => {
+  ctx.body = ctx.state.reqId;
+});
+
+app.listen(3000);
+```
+
+Execute a request to the running app:
+
+```bash
+❯ curl -v http://localhost:3000
+
+< HTTP/1.1 200 OK
+< X-Request-Id: a78598a4-6537-45eb-811c-fdc59602a54c
+
+a78598a4-6537-45eb-811c-fdc59602a54c
+```
+
+Sometimes it is also useful to pass a custom id via a request header, specifically in tracking requests on the distributed system. Please note that the input id is not sanitized, so the usual precautions apply.
+
+Using the above snippet to send a custom via the default `X-Request-Id` header:
+
+```bash
+❯ curl -v -H 'X-Request-Id: foobar' http://localhost:3000
+
+< HTTP/1.1 200 OK
+< Request-Id: foobar
+
+foobar
+```
 
 
 ## API
