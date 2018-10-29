@@ -89,6 +89,35 @@ foobar
 
 ## API
 
+### Creating an middleware
+
+You can create a new request id middleware by passing the relevant options to `requestId`;
+
+```node
+const middleware = requestId({
+  header: 'X-Request-Id',
+  propertyName: 'reqId',
+  generator: require('uuid/v4')
+});
+```
+
+### Middleware Configuration
+
+These are the available config options for the middleware. All is optional. The middleware set the request id into `ctx.state.reqId` Koa context state object and `X-Request-Id` response header using `uuidv4` generator if any option is not specified.
+
+```node
+{
+  // Request and response header name
+  header: 'X-Transaction-Id',
+
+  // Context property name in Koa
+  propertyName: 'tid',
+
+  // Function to generate request id
+  generator: () => Date.now().toString()
+}
+```
+
 
 ## Contributing
 
