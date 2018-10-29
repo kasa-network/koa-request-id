@@ -10,6 +10,9 @@
   <a href="https://circleci.com/gh/kasa-network/koa-request-id">
     <img alt="CircleCI" src="https://circleci.com/gh/kasa-network/koa-request-id.svg?style=shield" />
   </a>
+  <a href="https://coveralls.io/github/kasa-network/koa-request-id">
+    <img src="https://coveralls.io/repos/github/kasa-network/koa-request-id/badge.svg" alt='Coverage Status' />
+  </a>
   <a href="https://badge.fury.io/js/@kasa/koa-request-id">
     <img alt="npm version" src="https://img.shields.io/npm/v/@kasa/koa-request-id.svg" />
   </a>

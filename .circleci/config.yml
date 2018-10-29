@@ -21,7 +21,12 @@ jobs:
           command: |
             mkdir -p ~/reports
             yarn lint -- --format junit --output-file ~/reports/eslint.xml
-            yarn test
+            yarn test:coverage --ci --coverageDirectory ~/reports --testResultsProcessor jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: "~/reports/test-results.xml"
+      - run:
+          name: Upload Test Coverage to Coveralls
+          command: yarn run coveralls < ~/reports/lcov.info
       - store_test_results:
           path: ~/reports
       - store_artifacts:
