@@ -1,0 +1,28 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      # Primary container
+      - image: circleci/node:8.12.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: yarn
+      - save_cache:
+          key: dependencies-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Lint and Test
+          command: |
+            mkdir -p ~/reports
+            yarn lint -- --format junit --output-file ~/reports/eslint.xml
+            yarn test
+      - store_test_results:
+          path: ~/reports
+      - store_artifacts:
+          path: ~/reports
