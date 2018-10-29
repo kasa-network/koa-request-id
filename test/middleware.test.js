@@ -1,17 +1,18 @@
 'use strict';
 
-// const requestId = require('../');
+const requestId = require('../');
 
 
-// describe('request-id', () => {
-//   let middleware;
+describe('request-id', () => {
+  let middleware;
 
-//   beforeEach(() => {
-//     middleware = requestId();
-//   });
+  beforeEach(() => {
+    middleware = requestId();
+  });
 
-//   describe('something', () => {
-//     it.skip('should return', () => {
-//     });
-//   });
-// });
+  describe('something', () => {
+    it('should success', () => {
+      return middleware;
+    });
+  });
+});
