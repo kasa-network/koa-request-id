@@ -3,7 +3,7 @@
 </div>
 
 <p align="center">
-  A middleware that adds a request id in Koa
+  A middleware that generates a unique Request ID for every incoming HTTP request in Koa.
 </p>
 
 <div align="center">
@@ -84,7 +84,7 @@ Using the above snippet to send a custom via the default `X-Request-Id` header:
 ❯ curl -v -H 'X-Request-Id: foobar' http://localhost:3000
 
 < HTTP/1.1 200 OK
-< Request-Id: foobar
+< X-Request-Id: foobar
 
 foobar
 ```
