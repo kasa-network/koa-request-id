@@ -97,24 +97,29 @@ foobar
 You can create a new request id middleware by passing the relevant options to `requestId`;
 
 ```node
+// With default options
 const middleware = requestId({
+  query: null,
   header: 'X-Request-Id',
-  propertyName: 'reqId',
+  exposeHeader: 'X-Request-Id',
   generator: require('uuid/v4')
 });
 ```
 
 ### Middleware Configuration
 
-These are the available config options for the middleware. All is optional. The middleware set the request id into `ctx.state.reqId` Koa context state object and `X-Request-Id` response header using `uuidv4` generator if any option is not specified.
+These are the available config options for the middleware. All is optional. The middleware try to get the request id from `X-Request-Id` request header or generate a new request id using `uuidv4` generator. Then, the request id will be set into `ctx.state.reqId` Koa context state object and `X-Request-Id` response header if any option is not specified.
 
 ```node
 {
-  // Request and response header name
+  // Request query name to get the forwarded request id
+  query: 'reqId',
+
+  // Request header name to get the forwarded request id
   header: 'X-Transaction-Id',
 
-  // Context property name in Koa
-  propertyName: 'tid',
+  // Response header name
+  exposeHeader: 'X-Transaction-Id',
 
   // Function to generate request id
   generator: () => Date.now().toString()
@@ -131,4 +136,6 @@ Please use the [issue tracker](https://github.com/kasa-network/koa-request-id/is
 
 ## License
 
-Copyright © 2018, [Kasa](http://www.kasa.network).
+Provided under the terms of the [MIT License](https://github.com/kasa-network/koa-request-id/blob/master/LICENSE).
+
+Copyright © 2018-2019, [Kasa](http://www.kasa.network).
