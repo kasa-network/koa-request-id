@@ -1,6 +1,6 @@
 {
   "name": "@kasa/koa-request-id",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A middleware that adds a request id in Koa",
   "homepage": "https://github.com/kasa-network/koa-request-id",
   "author": {
